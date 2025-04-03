@@ -10,7 +10,14 @@ app.get('/', (c) => {
 app.get('/ping', (c) => {
   return c.json({ pong: 'Hello, World' });
 });
-
+app.get("/generate", (context) => {
+  return context.json(
+    {
+      randomNumber: Math.random(),
+    },
+    200
+  );
+});
 serve({
   fetch: app.fetch,
   port: 3000
